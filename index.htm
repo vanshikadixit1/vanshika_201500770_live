@@ -8,7 +8,7 @@
     <style>
         *{
             padding: 0px;
-            margin: 0px;git
+            margin: 0px;
             box-sizing: border-box;
         }
         body{
@@ -29,7 +29,7 @@
         }
         #banner ul li{
             margin-right: 50px;
-            /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             display: inline;
             list-style: none;
             font-size: 20px;
@@ -37,29 +37,24 @@
         }
 #logo1{
 display: inline;
-border: 1px solid rgb(232, 109, 148);
+border: 1px solid rgb(248, 50, 83);
 padding: 5px;
 padding-right: 15px;
-background-color: rgb(228, 111, 137);
+background-color: rgb(248, 10, 49);
 font-size: 50px;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 color: white;
 }
 #btn{
-    font-size: 20px;
+    font-size: 15px;
     display: inline;
-    border: 1px solid whitesmoke;
+    border: 0px solid;
     margin-left: 200px;
-    padding: 10px;
+    padding: 5px;
     color: red;
-    background-color: white;
-    
-    
-
 }
 #btn:hover{
     cursor: pointer;
-    
 }
 #body{
     display: block;
@@ -78,7 +73,7 @@ color: white;
 }
 .cotainer{
     font-size: 20px;
-    font-weight:bolder;
+    font-weight: bold;
     padding: 40px;
     margin: 40px;
     display: inline;
@@ -102,13 +97,50 @@ color: white;
 </ul>
 </div>
 <div id="body">
-<img src="../image.png" alt="">
+<img src="./image/image.png" alt="">
 </div>
 <div id="footer">
-<div class="cotainer">VANSHIKA DIXIT</div>
-<div class="cotainer">201500770</div>
-<div class="cotainer">GLA  University, Mathura</div>
-<div class="cotainer">11-07-2022</div>
+<div class="cotainer">Kartik Agarwal</div>
+<div class="cotainer">201500328</div>
+<div class="cotainer">GLA UNIVERSITY,MATHURA</div>
+<body onLoad="initClock()"></body>
+<div class="cotainer" id="timedate">      <a id="d">1</a>-
+    <a id="mon">January</a>-
+   <a id="y">0</a></div>
+  
+  
+  <script>
+  
+  // START CLOCK SCRIPT
+  
+  Number.prototype.pad = function(n) {
+    for (var r = this.toString(); r.length < n; r = 0 + r);
+    return r;
+  };
+  
+  function updateClock() {
+    var now = new Date();
+    var milli = now.getMilliseconds(),
+      sec = now.getSeconds(),
+      min = now.getMinutes(),
+      hou = now.getHours(),
+      mo = now.getMonth(),
+      dy = now.getDate(),
+      yr = now.getFullYear();
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var tags = ["mon", "d", "y", "h", "m", "s", "mi"],
+      corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2), milli];
+    for (var i = 0; i < tags.length; i++)
+      document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+  }
+  
+  function initClock() {
+    updateClock();
+    window.setInterval("updateClock()", 1);
+  }
+  
+  // END CLOCK SCRIPT
+  </script>
 </div>
 </body>
 </html>
